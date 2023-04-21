@@ -15,6 +15,7 @@ body{
     font-weight: 400;
     color: #343030;
     background-color: #E5E5E5;
+    overflow-x: hidden;
 }
 .header{
     height: 96px;
@@ -73,19 +74,95 @@ body{
     padding: 14px 36px;
     background-color: #403432;
     border-radius: 0;
+    font-family: 'Merriweather', sans-serif;
+    font-style: normal;
+    font-weight: 700;
     font-size: 14px;
     line-height: 21px;
     align-items: center;
     color: #FFFFFF;
-    transition: 0.4s ease;
-}
-.headline-btn:hover{
-    background-color: #E5E5E5;;
-    color: #403432;
-    /*outline: 2px solid #E5E5E5;*/
-    border:1px solid #403432;
+    transition: 0.3s ease;
 }
 .header-line{
     width: 100%;
     border: 1px solid #d2cece;
+}
+.main{
+    margin: 45px 0 320px 0;
+    max-width: 100%;
+}
+.title{
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0;
+}
+.picture-list{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 39px;
+}
+.picture-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d2cece;
+    justify-content: right;
+    max-width: 278px;
+    max-height: 328px;
+    margin-right: 32px;
+}
+.picture-name{
+    padding: 20px 36px 22px 24px;
+    margin: 0;
+    color: #343030;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+}
+.sold{
+    margin: 0;
+    padding:0 60px 36px 24px;
+}
+
+.old-price{
+    margin: 0;
+    padding-left: 24px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 150%;
+    color: #A0A0A0;
+    text-decoration-line: line-through;
+}
+.new-price{
+    margin: inherit;
+    padding: 0 0 26px 24px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #343030;
+}
+
+.picture-btn{
+    position: absolute;
+    margin:256px 24px 24px 138px;
+    padding: 14px 30px 13px;
+    background-color: #382E2B;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    border: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #F4F6F9;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.picture-btn:hover,
+.headline-btn:hover{
+    background-color: #E5E5E5;;
+    color: #403432;
+    border:1px solid #403432;
 }

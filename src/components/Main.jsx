@@ -32,7 +32,7 @@ const Main = () => (
                     <h3 className="new-price">5 000 000 $</h3>
                     <button className="picture-btn" type="button">Купить</button>
                 </li>
-                <li id="4" className="picture-item">
+                <li id="4" className="picture-item-sold">
                     <img src={pic4} alt="Урок Анатомии"/>
                     <a className="picture-link" href="#"/>
                     <h2 className="picture-name">«Урок анатомии»  Рембрандт</h2>

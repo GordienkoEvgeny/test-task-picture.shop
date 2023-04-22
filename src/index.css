@@ -1,3 +1,6 @@
+.App {
+    height: 100vh;
+}
 a{
     text-decoration: none;
     color: inherit;
@@ -165,4 +168,41 @@ body{
     background-color: #E5E5E5;;
     color: #403432;
     border:1px solid #403432;
+}
+.footer{
+    max-width: 1316px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.phone-img{
+    padding-left: 39px;
+}
+.menu-item .phone{
+    flex-wrap: nowrap;
+    padding-left: 9px;
+}
+.point-img{
+    padding-left: 22px;
+}
+.phone{
+    padding-left: 9px;
+}
+.address{
+    padding-left: 75px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 21px;
+
+    display: flex;
+    align-items: center;
+
+    color: #555555;
+}
+
+.picture-item-sold{
+    background-color: #E5E5E5;
+    border: 1px solid #bcbaba;
+    opacity: 0.5;
+    z-index: 100;
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import Form from  './Form';
+import phone from "../images/phone.svg";
 
-const Header = () =>(
-    <header className="header">
+const Footer = () => (
+    <header className="footer">
         <div className="container">
             <nav className="nav">
                 <ul className="menu">
@@ -21,11 +21,18 @@ const Header = () =>(
                     <li className="menu-item">
                         <a href="#" className="menu-link">О компании</a>
                     </li>
+                    <li className="menu-item-footer">
+                        <a className="img">
+                            <img className="phone-img" src={phone} alt="Телефон"/>
+                        </a>
+                        <a className="phone" href="tel:+78125555555">+7 (812) 555-55-55</a>
+                    </li>
+                    <li className="menu-item-footer">
+                        <p className="address">г. Санкт-Петербург, ул. Ефимова, 3</p>
+                    </li>
                 </ul>
-                <Form/>
             </nav>
         </div>
-        <div className="header-line"/>
     </header>
 );
-export default Header;
+export default Footer;

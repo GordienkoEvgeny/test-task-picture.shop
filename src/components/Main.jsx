@@ -21,7 +21,7 @@ const Main = () => (
                     <img src={pic2} alt="Тайная вечеря"/>
                     <a className="picture-link" href="#"/>
                     <h2 className="picture-name">«Тайная вечеря»  Леонардо да Винчи</h2>
-                    <h3 className="new-price">3 000 000 $</h3>
+                    <h3 className="new-price undiscouted">3 000 000 $</h3>
                     <button className="picture-btn" type="button">Купить</button>
                 </li>
                 <li id="3" className="picture-item">
@@ -32,7 +32,7 @@ const Main = () => (
                     <h3 className="new-price">5 000 000 $</h3>
                     <button className="picture-btn" type="button">Купить</button>
                 </li>
-                <li id="4" className="picture-item-sold">
+                <li id="4" className="picture-item disabled">
                     <img src={pic4} alt="Урок Анатомии"/>
                     <a className="picture-link" href="#"/>
                     <h2 className="picture-name">«Урок анатомии»  Рембрандт</h2>

@@ -257,7 +257,7 @@ body{
 
 @media (max-width: 1000px){
     .picture-list{
-        padding: 0;
+        padding-right: 40px
     }
     .picture-item{
        margin:20px 0 0 15px;

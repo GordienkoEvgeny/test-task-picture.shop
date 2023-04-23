@@ -233,10 +233,10 @@ body{
         padding-top: 30px;
     }
     .header-form{
-        margin-left: 60px;
+        margin: 24px 0 24px 40px;;
     }
     .title{
-        padding: 35px 0 0 62px;
+        padding: 35px 0 0 30px;
         text-align: center;
     }
     .picture-list{
@@ -255,14 +255,94 @@ body{
     }
 }
 
-@media (max-width: 1007px){
+@media (max-width: 1000px){
+    .picture-list{
+        padding: 0;
+    }
     .picture-item{
-       margin:20px 0 0 0;
+       margin:20px 0 0 15px;
+    }
+    .header-form{
+        margin: 24px -22px 24px 40px;
     }
 }
-@media (max-width: 965px){
-    .picture-list{
-        flex-wrap: wrap;
+@media (max-width: 712px){
+    .menu{
         justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .menu-item{
+        padding-top: 15px ;
+    }
+    .title{
+        padding: 35px 0 0 15px;
+    }
+    .picture-item{
+        margin-left:15px;
+    }
+    .menu{
+        margin-left: 53px;
+        padding-top: 15px;
+    }
+    .header-form{
+        margin: 24px 0px 24px 10px;
+    }
+}
+@media (max-width: 670px){
+    .menu-link{
+        font-size: 18px;
+    }
+    .title{
+        padding: 80px 0 0 27px;
+    }
+    .picture-item{
+        margin:25px 0 0 15px;
+    }
+}
+@media (max-width: 530px){
+    .header-input::placeholder{
+        font-size: 16px;
+    }
+    .header-form{
+        margin: 20px 0 10px 0;
+    }
+    .title{
+        padding: 55px 0 0 5px;
+    }
+}
+@media (max-width: 460px){
+    .header-input{
+        width: 320px;
+        padding-left: 10px;
+    }
+    .header-input::placeholder{
+        font-size: 15px;
+    }
+    .headline-btn{
+        width: 100px;
+        padding: 0;
+    }
+    .menu{
+        padding: 0;
+        flex-direction: column;
+    }
+    .title{
+        padding: 148px 0 0 5px;
+        font-size: 20px;
+    }
+}
+@media (max-width: 360px){
+    .title{
+        padding-top: 140px ;
+    }
+    .header-form{
+        margin: 10px 0 10px 0;
+    }
+    .nav{
+        margin: 0;
+    }
+    .header-input{
+        width: 300px;
+        padding-right: 0;
     }
 }

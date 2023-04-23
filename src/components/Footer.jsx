@@ -4,8 +4,8 @@ import phone from "../images/phone.svg";
 const Footer = () => (
     <header className="footer">
         <div className="container">
-            <nav className="nav">
-                <ul className="menu">
+            <nav className="nav-footer">
+                <ul className="menu-footer">
                     <li className="menu-item">
                         <a href="#" className="menu-link">Каталог</a>
                     </li>

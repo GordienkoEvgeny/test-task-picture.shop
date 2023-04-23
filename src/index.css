@@ -33,7 +33,16 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.menu{
+.nav-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ECEAEA;
+    height: 96px;
+
+}
+.menu,
+.menu-footer{
     margin-left: 96px;
     display: flex;
 }
@@ -170,26 +179,25 @@ body{
     border:1px solid #403432;
 }
 .footer{
-    max-width: 1316px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 15px;
+    height: 96px;
+    background-color: #ECEAEA;
 }
 
 .phone-img{
-    padding-left: 39px;
+    padding-left: 79px;
 }
 .menu-item .phone{
     flex-wrap: nowrap;
     padding-left: 9px;
 }
-.point-img{
-    padding-left: 22px;
-}
 .phone{
     padding-left: 9px;
 }
 .address{
-    padding-left: 75px;
+    padding-left: 19px;
     margin: 0;
     font-size: 14px;
     line-height: 21px;
@@ -205,4 +213,8 @@ body{
     border: 1px solid #bcbaba;
     opacity: 0.5;
     z-index: 100;
+}
+
+.menu-item-footer{
+    padding-right: 8px;
 }

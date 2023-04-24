@@ -1,26 +1,17 @@
 import React from 'react';
 import phone from "../images/phone.svg";
 
-const Footer = () => (
+const Footer = (items) => (
     <header className="footer">
         <div className="container">
             <nav className="nav-footer">
                 <ul className="menu-footer">
-                    <li className="menu-item">
-                        <a href="#" className="menu-link">Каталог</a>
-                    </li>
-                    <li className="menu-item">
-                        <a href="#" className="menu-link">Доставка</a>
-                    </li>
-                    <li className="menu-item">
-                        <a href="#" className="menu-link">Оплата</a>
-                    </li>
-                    <li className="menu-item">
-                        <a href="#" className="menu-link">Контакты</a>
-                    </li>
-                    <li className="menu-item">
-                        <a href="#" className="menu-link">О компании</a>
-                    </li>
+                    {items && items.items.map((item, index)=>{
+                        return(
+                            <li className="menu-item">
+                                <a href="#" key={index} className="menu-link">{item}</a>
+                            </li>)
+                    })}
                     <li className="menu-item-footer">
                         <a className="img">
                             <img className="phone-img" src={phone} alt="Телефон"/>

@@ -5,6 +5,7 @@ import pic3 from '../images/pic3.jpg';
 import pic4 from '../images/pic4.jpg';
 import {useContext} from "react";
 import {ValueContext} from "../App";
+import cn from 'classnames';
 
 const Main = () => {
     const searchName = useContext(ValueContext);
@@ -48,22 +49,17 @@ const Main = () => {
             <h1 className="title">Картины эпохи Возрождения</h1>
             <ul className="picture-list">
                 {currentPicture && currentPicture.map((picture) =>{
-                        return(<li id={picture.id} key={picture.id} className="picture-item" onClick={()=> console.log('click')}>
+                        const classPictureItem = cn('picture-item', {disabled: !picture.newPrice})
+                        const classNewPrice = cn(picture.newPrice ? 'new-price' : 'sold')
+
+                        return(<li id={picture.id} key={picture.id} className={classPictureItem} onClick={()=> console.log('click')}>
                             <img src={picture.img} alt="Рождение Венеры"/>
                             <a className="picture-link" href="#"/>
                             <h2 className="picture-name">{`«${picture.pictureName}» ${picture.author}`}</h2>
                             <h3 className="old-price">{picture.oldPrice}</h3>
-                            <h3 className="new-price">{picture.newPrice}</h3>
-                            <button className="picture-btn" type="button">Купить</button>
+                            <h3 className={classNewPrice}>{picture.newPrice ? picture.newPrice : 'Продана на аукционе'}</h3>
+                            {picture.newPrice ? <button className="picture-btn" type="button">Купить</button> : null}
                         </li>)
-                    // return(<li id={picture.id} key={picture.id} className="picture-item" onClick={()=> console.log('click')}>
-                    //     <img src={picture.img} alt="Рождение Венеры"/>
-                    //     <a className="picture-link" href="#"/>
-                    //     <h2 className="picture-name">{`«${picture.pictureName}» ${picture.author}`}</h2>
-                    //     <h3 className="old-price">{picture.oldPrice}</h3>
-                    //     <h3 className="new-price">{picture.newPrice}</h3>
-                    //     <button className="picture-btn" type="button">Купить</button>
-                    // </li>)
                 })}
                 {/*<li id="1" className="picture-item" onClick={()=> console.log('click')}>*/}
                 {/*    <img src={pic1} alt="Рождение Венеры"/>*/}

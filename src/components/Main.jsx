@@ -9,6 +9,7 @@ import cn from 'classnames';
 
 const Main = () => {
     const searchName = useContext(ValueContext);
+    const [currentPickId, setCurrentPickId] = useState(1);
     const [pictureInfo] =
         useState([{
         id: 1,
@@ -16,7 +17,9 @@ const Main = () => {
         pictureName:'Рождение Венеры',
         author:'Сандро Боттичелли',
         oldPrice: '2 000 000 $',
-        newPrice: '1 000 000 $'},
+        newPrice: '1 000 000 $',
+        inBasket: 'Купить',
+        },
         {
         id: 2,
         img: pic2,
@@ -24,6 +27,7 @@ const Main = () => {
         author:'Леонардо да Винчи',
         oldPrice: null,
         newPrice: '3 000 000 $',
+        inBasket: 'Купить',
         },
         {
         id: 3,
@@ -32,6 +36,7 @@ const Main = () => {
         author:'Микеланджело',
         oldPrice: '6 000 000 $',
         newPrice: '5 000 000 $',
+        inBasket: 'Купить',
         },
         {
         id: 4,
@@ -40,6 +45,7 @@ const Main = () => {
         author:'Рембрандт',
         oldPrice: null,
         newPrice: null,
+        inBasket: 'Купить',
         }])
     const currentPicture = pictureInfo && pictureInfo.filter((picture) =>
         picture.pictureName.toLowerCase().includes(searchName.inputValue.toLowerCase()));
@@ -49,47 +55,33 @@ const Main = () => {
             <h1 className="title">Картины эпохи Возрождения</h1>
             <ul className="picture-list">
                 {currentPicture && currentPicture.map((picture) =>{
-                        const classPictureItem = cn('picture-item', {disabled: !picture.newPrice})
-                        const classNewPrice = cn(picture.newPrice ? 'new-price' : 'sold')
-
+                        const classPictureItem = cn('picture-item', {disabled: !picture.newPrice});
+                        const classNewPrice = cn(picture.newPrice ? 'new-price' : 'sold');
+                        const classBtn = cn(`picture-btn headline-btn-bg-changed`);
                         return(<li id={picture.id} key={picture.id} className={classPictureItem} onClick={()=> console.log('click')}>
                             <img src={picture.img} alt="Рождение Венеры"/>
                             <a className="picture-link" href="#"/>
                             <h2 className="picture-name">{`«${picture.pictureName}» ${picture.author}`}</h2>
                             <h3 className="old-price">{picture.oldPrice}</h3>
                             <h3 className={classNewPrice}>{picture.newPrice ? picture.newPrice : 'Продана на аукционе'}</h3>
-                            {picture.newPrice ? <button className="picture-btn" type="button">Купить</button> : null}
+                            {picture.newPrice ? <button
+                                className = {localStorage.getItem(`key${picture.id}`) === '✔ в корзине' ? classBtn : `picture-btn`}
+                                type="button"
+                                onClick={()=>{
+                                    console.log(currentPickId);
+                                        setCurrentPickId(currentPickId + 1);
+                                    if(localStorage.getItem(`key${picture.id}`) === '✔ в корзине'){
+                                        localStorage.removeItem(`key${picture.id}`)
+                                        setCurrentPickId(currentPickId + 1);
+                                    } else {
+                                        setCurrentPickId(currentPickId + 1);
+                                        localStorage.setItem(`key${picture.id}`, '✔ в корзине' );
+                                    }
+                                }}>
+                                <span className="loader"></span>
+                                {localStorage.getItem(`key${picture.id}`) || picture.inBasket}</button> : null}
                         </li>)
                 })}
-                {/*<li id="1" className="picture-item" onClick={()=> console.log('click')}>*/}
-                {/*    <img src={pic1} alt="Рождение Венеры"/>*/}
-                {/*    <a className="picture-link" href="#"/>*/}
-                {/*    <h2 className="picture-name">«Рождение Венеры» Сандро Боттичелли</h2>*/}
-                {/*    <h3 className="old-price">2 000 000 </h3>*/}
-                {/*    <h3 className="new-price">1 000 000 $</h3>*/}
-                {/*    <button className="picture-btn" type="button">Купить</button>*/}
-                {/*</li>*/}
-                {/*<li id="2" className="picture-item">*/}
-                {/*    <img src={pic2} alt="Тайная вечеря"/>*/}
-                {/*    <a className="picture-link" href="#"/>*/}
-                {/*    <h2 className="picture-name">«Тайная вечеря»  Леонардо да Винчи</h2>*/}
-                {/*    <h3 className="new-price undiscouted">3 000 000 $</h3>*/}
-                {/*    <button className="picture-btn" type="button">Купить</button>*/}
-                {/*</li>*/}
-                {/*<li id="3" className="picture-item">*/}
-                {/*    <img src={pic3} alt="Сотворение Адама"/>*/}
-                {/*    <a className="picture-link" href="#"/>*/}
-                {/*    <h2 className="picture-name">«Сотворение Адама» Микеланджело</h2>*/}
-                {/*    <h3 className="old-price">6 000 000 $</h3>*/}
-                {/*    <h3 className="new-price">5 000 000 $</h3>*/}
-                {/*    <button className="picture-btn" type="button">Купить</button>*/}
-                {/*</li>*/}
-                {/*<li id="4" className="picture-item disabled">*/}
-                {/*    <img src={pic4} alt="Урок Анатомии"/>*/}
-                {/*    <a className="picture-link" href="#"/>*/}
-                {/*    <h2 className="picture-name">«Урок анатомии»  Рембрандт</h2>*/}
-                {/*    <h3 className="sold">Продана на аукционе</h3>*/}
-                {/*</li>*/}
             </ul>
         </div>
     </section>

@@ -1,19 +1,31 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import {useState} from "react";
+import {useState, createContext} from "react";
 
-// export const valueContext = createContext();
+export const ValueContext = createContext({
+    inputValue: "",
+    setInputValue: () => {},
+});
+export const ValueProvider = ({children}) => {
+    const [inputValue, setInputValue] = useState('');
+    console.log(inputValue,'INPUTVALUE')
+    return (
+        <ValueContext.Provider value={{inputValue, setInputValue}}>
+            {children}
+        </ValueContext.Provider>
+    )
+}
 function App() {
-  const [inputValue, setInputValue] = useState('')
   const [headerAndFooterItems, setHeaderAndFooterItems] =
       useState(['Каталог', 'Доставка','Оплата', 'Контакты', 'О компании']);
-  console.log(inputValue,'iputval')
   return (
     <div className="App">
-      <Header items={headerAndFooterItems} setInputValue={setInputValue}/>
-      <Main inputValue={inputValue}/>
-      <Footer items={headerAndFooterItems}/>
+        <ValueProvider>
+          <Header items={headerAndFooterItems}/>
+          <Main/>
+          <Footer items={headerAndFooterItems}/>
+        </ValueProvider>
     </div>
   );
 }

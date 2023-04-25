@@ -3,11 +3,11 @@ import pic1 from '../images/pic1.jpg';
 import pic2 from '../images/pic2.jpg';
 import pic3 from '../images/pic3.jpg';
 import pic4 from '../images/pic4.jpg';
-// import {useContext} from "react";
-// import {valueContext} from "../App";
+import {useContext} from "react";
+import {ValueContext} from "../App";
 
-const Main = (searchName) => {
-    // const searchName = useContext(valueContext)
+const Main = () => {
+    const searchName = useContext(ValueContext);
     const [pictureInfo] =
         useState([{
         id: 1,
@@ -40,9 +40,8 @@ const Main = (searchName) => {
         oldPrice: null,
         newPrice: null,
         }])
-    // console.log(pictureInfo,'picture')
     const currentPicture = pictureInfo && pictureInfo.filter((picture) =>
-        picture.pictureName !== searchName);
+        picture.pictureName.toLowerCase().includes(searchName.inputValue.toLowerCase()));
     return(
     <section className="main">
         <div className="container">

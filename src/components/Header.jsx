@@ -1,8 +1,7 @@
 import React from 'react';
-import Form from  './Form';
+import Form from "./Form";
 
-const Header = (items, setInputValue) =>{
-    console.log(items,'items');
+const Header = (items) =>{
     return(
     <header className="header">
         <div className="container">
@@ -10,12 +9,12 @@ const Header = (items, setInputValue) =>{
                 <ul className="menu">
                     {items && items.items.map((item, index)=>{
                         return(
-                            <li className="menu-item">
-                                <a href="#" key={index} className="menu-link">{item}</a>
-                            </li>)
+                        <li className="menu-item">
+                            <a href="#" key={index} className="menu-link">{item}</a>
+                        </li>)
                     })}
                 </ul>
-                <Form setInputValue={setInputValue}/>
+                <Form/>
             </nav>
         </div>
         <div className="header-line"/>

@@ -6,10 +6,12 @@ import pic4 from '../images/pic4.jpg';
 import {useContext} from "react";
 import {ValueContext} from "../App";
 import cn from 'classnames';
+import ViewModal from "./Modal";
 
 const Main = () => {
     const searchName = useContext(ValueContext);
-    const [currentPickId, setCurrentPickId] = useState(1);
+    const [renderId, setRenderId] = useState(1);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [pictureInfo] =
         useState([{
         id: 1,
@@ -47,6 +49,12 @@ const Main = () => {
         newPrice: null,
         inBasket: 'Купить',
         }])
+    const handleModalIsOpen = () => {
+        setModalIsOpen(true);
+    };
+    const handleModalClose = () => {
+        setModalIsOpen(false);
+    }
     const currentPicture = pictureInfo && pictureInfo.filter((picture) =>
         picture.pictureName.toLowerCase().includes(searchName.inputValue.toLowerCase()));
     return(
@@ -58,8 +66,8 @@ const Main = () => {
                         const classPictureItem = cn('picture-item', {disabled: !picture.newPrice});
                         const classNewPrice = cn(picture.newPrice ? 'new-price' : 'sold');
                         const classBtn = cn(`picture-btn headline-btn-bg-changed`);
-                        return(<li id={picture.id} key={picture.id} className={classPictureItem} onClick={()=> console.log('click')}>
-                            <img src={picture.img} alt="Рождение Венеры"/>
+                        return(<li id={picture.id} key={picture.id} className={classPictureItem}>
+                            <img className="picture-img" src={picture.img} alt="Рождение Венеры" onClick={()=> handleModalIsOpen()}/>
                             <a className="picture-link" href="#"/>
                             <h2 className="picture-name">{`«${picture.pictureName}» ${picture.author}`}</h2>
                             <h3 className="old-price">{picture.oldPrice}</h3>
@@ -68,13 +76,13 @@ const Main = () => {
                                 className = {localStorage.getItem(`key${picture.id}`) === '✔ в корзине' ? classBtn : `picture-btn`}
                                 type="button"
                                 onClick={()=>{
-                                    console.log(currentPickId);
-                                        setCurrentPickId(currentPickId + 1);
+                                    console.log(renderId);
+                                        setRenderId(renderId + 1);
                                     if(localStorage.getItem(`key${picture.id}`) === '✔ в корзине'){
                                         localStorage.removeItem(`key${picture.id}`)
-                                        setCurrentPickId(currentPickId + 1);
+                                        setRenderId(renderId + 1);
                                     } else {
-                                        setCurrentPickId(currentPickId + 1);
+                                        setRenderId(renderId + 1);
                                         localStorage.setItem(`key${picture.id}`, '✔ в корзине' );
                                     }
                                 }}>
@@ -84,6 +92,7 @@ const Main = () => {
                 })}
             </ul>
         </div>
+        <ViewModal active={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
     </section>
 )}
 export default Main;

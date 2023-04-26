@@ -64,12 +64,6 @@ const Main = () => {
         newPrice: null,
         inBasket: 'Купить',
         }])
-    const handleModalIsOpen = () => {
-        setModalIsOpen(true);
-    };
-    const handleModalClose = () => {
-        setModalIsOpen(false);
-    }
     const currentPicture = pictureInfo && pictureInfo.filter((picture) =>
         picture.pictureName.toLowerCase().includes(searchName.inputValue.toLowerCase()));
     return(
@@ -77,23 +71,23 @@ const Main = () => {
         <div className="container">
             <h1 className="title">Картины эпохи Возрождения</h1>
             <ul className="picture-list">
-                {currentPicture && currentPicture.map((picture) =>{
+                {currentPicture && currentPicture.map((picture, index) =>{
                         const classPictureItem = cn('picture-item', {disabled: !picture.newPrice});
                         const classNewPrice = cn(picture.newPrice ? 'new-price' : 'sold');
                         const classBtn = cn(`picture-btn headline-btn-bg-changed`);
-                        return(<li id={picture.id} key={picture.id} className={classPictureItem}>
+                        return(
+                            <li id={picture.id} key={index} className={classPictureItem}>
                             <img className="picture-img" src={picture.img} alt="Рождение Венеры" onClick={()=>{
                                 setCurrentImageData(picture);
-                                handleModalIsOpen()}}/>
+                                setModalIsOpen(true)}}/>
                             <a className="picture-link" href="#"/>
                             <h2 className="picture-name">{`«${picture.pictureName}» ${picture.author}`}</h2>
                             <h3 className="old-price">{picture.oldPrice}</h3>
                             <h3 className={classNewPrice}>{picture.newPrice ? picture.newPrice : 'Продана на аукционе'}</h3>
-                            {picture.newPrice ? <button
+                                {picture.newPrice ? <button
                                 className = {localStorage.getItem(`key${picture.id}`) === '✔ в корзине' ? classBtn : `picture-btn`}
                                 type="button"
                                 onClick={()=>{
-                                    console.log(renderId);
                                         setRenderId(renderId + 1);
                                     if(localStorage.getItem(`key${picture.id}`) === '✔ в корзине'){
                                         localStorage.removeItem(`key${picture.id}`)
@@ -103,7 +97,7 @@ const Main = () => {
                                         localStorage.setItem(`key${picture.id}`, '✔ в корзине' );
                                     }
                                 }}>
-                                <span className="loader"></span>
+                            <span className="loader"></span>
                                 {localStorage.getItem(`key${picture.id}`) || picture.inBasket}</button> : null}
                         </li>)
                 })}

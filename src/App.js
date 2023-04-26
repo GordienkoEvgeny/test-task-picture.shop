@@ -9,7 +9,6 @@ export const ValueContext = createContext({
 });
 export const ValueProvider = ({children}) => {
     const [inputValue, setInputValue] = useState('');
-    console.log(inputValue,'INPUTVALUE')
     return (
         <ValueContext.Provider value={{inputValue, setInputValue}}>
             {children}

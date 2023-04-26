@@ -483,7 +483,9 @@ body{
     .modal-content {
         width: 350px;
         height: 550px;
-
+    }
+    .modal-title{
+        margin-top: -15px;
     }
     .modal-img{
         display: block;
@@ -557,11 +559,12 @@ body{
     .modal-content {
         padding: 0;
         width: 320px;
-        height: 535px;
+        height: 580px;
 
     }
     .modal-title{
         font-size: 12px;
+        margin-top: 0;
     }
     .modal-body{
         margin-left: 5px;
@@ -575,7 +578,7 @@ body{
         display: block;
         margin: 0 auto;
         width: 300px;
-        height: 200px;
+        height: 180px;
     }
     .slider-controls{
         bottom: 25vh;

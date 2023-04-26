@@ -9,8 +9,8 @@ const Header = (items) =>{
                 <ul className="menu">
                     {items && items.items.map((item, index)=>{
                         return(
-                        <li className="menu-item">
-                            <a href="#" key={index} className="menu-link">{item}</a>
+                        <li className="menu-item" key={index}>
+                            <a href="#"  className="menu-link">{item}</a>
                         </li>)
                     })}
                 </ul>

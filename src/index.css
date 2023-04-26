@@ -169,13 +169,11 @@ body{
 .picture-btn{
     position: absolute;
     margin:256px 24px 24px 138px;
-    /*padding: 14px 20px 13px;*/
     background-color: #382E2B;
     font-family: 'Merriweather', sans-serif;
     font-size: 14px;
     line-height: 21px;
     border: none;
-    /*display: flex;*/
     align-items: center;
     text-align: center;
     min-width: 112px;
@@ -229,6 +227,7 @@ body{
     transform: scale(1);
 }
 .modal-content{
+    position: relative;
     padding: 20px;
     border-radius: 20px;
     background-color: #E5E5E5;
@@ -240,7 +239,7 @@ body{
 }
 .slider-controls {
     position: absolute;
-    bottom: 36vh;
+    bottom: 32vh;
     left: 0;
     right: 0;
     margin: auto;
@@ -397,9 +396,6 @@ body{
     .footer {
         flex: 0 0 auto;
     }
-    /*.nav-footer{*/
-    /*    height: 300px;*/
-    /*}*/
     .phone-img{
         padding: 0;
     }
@@ -494,7 +490,7 @@ body{
         height: 200px;
     }
     .slider-controls{
-        bottom: 25vh;
+        bottom: 22vh;
     }
     .slider-controls button{
         margin: 0 2px;
@@ -581,7 +577,7 @@ body{
         height: 180px;
     }
     .slider-controls{
-        bottom: 25vh;
+        bottom: 21vh;
     }
     .slider-controls button{
         margin: 0 2px;

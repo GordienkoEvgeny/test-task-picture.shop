@@ -12,12 +12,17 @@ const Main = () => {
     const searchName = useContext(ValueContext);
     const [renderId, setRenderId] = useState(1);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [currentImageData, setCurrentImageData] = useState('');
     const [pictureInfo] =
         useState([{
         id: 1,
         img: pic1,
         pictureName:'Рождение Венеры',
         author:'Сандро Боттичелли',
+        description: `«Рождение Венеры» 1482—1486 г. (итал. Nascita di Venere) — картина
+                      итальянскогохудожника тосканской школы Сандро Боттичелли.
+                      Представляет собой живопись темперой на холсте размером
+                      172,5 × 278,5 см.`,
         oldPrice: '2 000 000 $',
         newPrice: '1 000 000 $',
         inBasket: 'Купить',
@@ -27,6 +32,9 @@ const Main = () => {
         img: pic2,
         pictureName:'Тайная вечеря',
         author:'Леонардо да Винчи',
+        description: `«Тáйная вéчеря» 1495—1498 г. (итал. Il Cenacolo или L'Ultima Cena) — событие
+                      новозаветной истории, последняя трапеза Иисуса Христа со своими
+                      двенадцатью ближайшими учениками.`,
         oldPrice: null,
         newPrice: '3 000 000 $',
         inBasket: 'Купить',
@@ -36,6 +44,10 @@ const Main = () => {
         img: pic3,
         pictureName:'Сотворение Адама',
         author:'Микеланджело',
+        description: `«Сотворение Адама» (итал. La creazione di Adamo) — фреска Микеланджело,
+                      написанная около 1511 года. Фреска является четвёртой из девяти
+                      центральных композиций потолка Сикстинской капеллы,
+                      посвящённых девяти сюжетам книги Бытия.`,
         oldPrice: '6 000 000 $',
         newPrice: '5 000 000 $',
         inBasket: 'Купить',
@@ -45,6 +57,9 @@ const Main = () => {
         img: pic4,
         pictureName:'Урок анатомии',
         author:'Рембрандт',
+        description: `«Урок анатомии доктора Тульпа» — картина Рембрандта, написанная в 1632 году.
+                      Центральная фигура картины — доктор Николас Тульп,
+                      который показывает собравшимся устройство мускулатуры руки человека.`,
         oldPrice: null,
         newPrice: null,
         inBasket: 'Купить',
@@ -67,7 +82,9 @@ const Main = () => {
                         const classNewPrice = cn(picture.newPrice ? 'new-price' : 'sold');
                         const classBtn = cn(`picture-btn headline-btn-bg-changed`);
                         return(<li id={picture.id} key={picture.id} className={classPictureItem}>
-                            <img className="picture-img" src={picture.img} alt="Рождение Венеры" onClick={()=> handleModalIsOpen()}/>
+                            <img className="picture-img" src={picture.img} alt="Рождение Венеры" onClick={()=>{
+                                setCurrentImageData(picture);
+                                handleModalIsOpen()}}/>
                             <a className="picture-link" href="#"/>
                             <h2 className="picture-name">{`«${picture.pictureName}» ${picture.author}`}</h2>
                             <h3 className="old-price">{picture.oldPrice}</h3>
@@ -92,7 +109,7 @@ const Main = () => {
                 })}
             </ul>
         </div>
-        <ViewModal active={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
+        <ViewModal active={modalIsOpen} setModalIsOpen={setModalIsOpen} currentImageData={currentImageData}/>
     </section>
 )}
 export default Main;

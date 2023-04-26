@@ -240,7 +240,7 @@ body{
 }
 .slider-controls {
     position: absolute;
-    bottom: 32vh;
+    bottom: 36vh;
     left: 0;
     right: 0;
     margin: auto;
@@ -261,6 +261,9 @@ body{
 .slider-controls button {
     margin: 0 10px;
     animation: blink 3s infinite;
+}
+.modal-img{
+
 }
 @keyframes blink {
     0% {
@@ -477,6 +480,23 @@ body{
     .nav-footer{
         height: 150px;
     }
+    .modal-content {
+        width: 350px;
+        height: 550px;
+
+    }
+    .modal-img{
+        display: block;
+        margin: 0 auto;
+        width: 340px;
+        height: 200px;
+    }
+    .slider-controls{
+        bottom: 25vh;
+    }
+    .slider-controls button{
+        margin: 0 2px;
+    }
 }
 @media (max-width: 530px){
     .header-input::placeholder{
@@ -530,6 +550,38 @@ body{
     }
     .phone{
         padding-right: 60px;
+    }
+}
+
+@media (max-width: 400px){
+    .modal-content {
+        padding: 0;
+        width: 320px;
+        height: 535px;
+
+    }
+    .modal-title{
+        font-size: 12px;
+    }
+    .modal-body{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .price{
+        margin:28px 0 0 15px;
+        font-size: 13px;
+    }
+    .modal-img{
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 200px;
+    }
+    .slider-controls{
+        bottom: 25vh;
+    }
+    .slider-controls button{
+        margin: 0 2px;
     }
 }
 @media (max-width: 360px){

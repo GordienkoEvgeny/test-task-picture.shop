@@ -56,10 +56,10 @@ const Modal = ({active, setModalIsOpen, currentImageData}) => {
                     <h2>{`«${currentImageData.pictureName}» ${currentImageData.author}`}</h2>
                 </div>
             </div>
-            <div className="modal-img">
+            <div className="modal-slider">
                 <div className="slider">
                     <div className="slider-content">
-                        <img src={images[currentImageIndex]} alt={currentImageData.pictureName} />
+                        <img className="modal-img" src={images[currentImageIndex]} alt={currentImageData.pictureName} />
                     </div>
                     <div className="slider-controls">
                         <button className="next-btn" onClick={previousSlide}>
